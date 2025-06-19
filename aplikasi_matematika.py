@@ -75,6 +75,19 @@ with tab1:
         laba_kursi = st.number_input("Keuntungan per Kursi (c₂)", value=200_000)
         harga_kursi = st.number_input("Harga Jual Kursi", value=500_000)
 
+    if st.button("Hitung Total (Z)", key="btn_z"):
+    Z = c1 * X + c2 * Y
+    st.success(f"Hasil: Z = {Z:,.0f}")
+
+    st.subheader("🧮 Perhitungan Berdasarkan Input")
+    st.latex(rf"""
+    \begin{{align*}}
+    Z &= c_1 \cdot X + c_2 \cdot Y \\
+      &= {c1} \cdot {X} + {c2} \cdot {Y} \\
+      &= {Z:,.0f}
+    \end{{align*}}
+    """)
+
     # Hitung biaya produksi dari selisih harga dan keuntungan
     biaya_meja = harga_meja - laba_meja
     biaya_kursi = harga_kursi - laba_kursi
@@ -230,6 +243,26 @@ with tab2:
         EOQ = math.sqrt((2 * D * S) / H)
         freq = D / EOQ
         cycle_days = 365 / freq
+
+    if st.button("Hitung EOQ"):
+    try:
+        EOQ = math.sqrt((2 * D * S) / H)
+        N = D / EOQ
+        T = 365 / N  # diasumsikan 1 tahun = 365 hari
+
+        st.success(f"EOQ: {EOQ:.2f} unit | Frekuensi Pesan (N): {N:.2f} | Interval (T): {T:.2f} hari")
+
+        st.subheader("🧮 Perhitungan Berdasarkan Input")
+        st.latex(rf"""
+        \begin{{align*}}
+        \text{{EOQ}} &= \sqrt{{\frac{{2DS}}{{H}}}} = \sqrt{{\frac{{2 \cdot {D} \cdot {S}}}{{{H}}}}} = {EOQ:.2f} \\
+        N &= \frac{{D}}{{EOQ}} = \frac{{{D}}}{{{EOQ:.2f}}} = {N:.2f} \\
+        T &= \frac{{365}}{{N}} = \frac{{365}}{{{N:.2f}}} = {T:.2f} \text{{ hari}}
+        \end{{align*}}
+        """)
+    except:
+        st.error("Pastikan semua input terisi dan nilai H ≠ 0")
+
 
         st.success(
             f"""
