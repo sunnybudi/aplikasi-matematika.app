@@ -83,7 +83,7 @@ with tab1:
         st.latex(rf"""
         \begin{{align*}}
         Z &= c_1 \cdot X + c_2 \cdot Y \\
-          &= {c1} \cdot {X} + {c2} \cdot {Y} \\
+          &= {laba_meja} \cdot {x} + {laba_kursi} \cdot {y} \\
           &= {Z:,.0f}
         \end{{align*}}
         """)
