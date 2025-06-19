@@ -458,23 +458,25 @@ with tab4:
     else:  # Rupiah → USD
         harga_beli_rp = st.number_input("Harga Beli (Rp)", min_value=0.0, format="%.2f")
         harga_jual_usd = st.number_input("Harga Jual (USD)", min_value=0.0, format="%.2f")
-
+    
         if kurs > 0 and harga_beli_rp > 0 and harga_jual_usd > 0:
             harga_beli_usd = harga_beli_rp / kurs
             selisih_usd = harga_jual_usd - harga_beli_usd
             persen = (selisih_usd / harga_beli_usd) * 100
-
+    
             hasil_text = "Untung" if selisih_usd > 0 else "Rugi"
             st.success(f"{hasil_text}: USD {abs(selisih_usd):,.2f} ({abs(persen):.2f}%)")
-
+    
             st.subheader("🧮 Perhitungan")
             st.latex(rf"""
             \begin{{align*}}
-            \text{{Harga Beli (USD)}} &= \frac{{{harga_beli_rp}}}{{{kurs}}} = {harga_beli_usd:,.2f} \\
+            \text{{Harga Beli (USD)}} &= \frac{{{harga_beli_rp:,.0f}}}{{{kurs:,.2f}}} = {harga_beli_usd:,.2f} \\
             \text{{{hasil_text}}} &= {harga_jual_usd:,.2f} - {harga_beli_usd:,.2f} = {selisih_usd:,.2f} \\
             \text{{Persentase}} &= \frac{{{selisih_usd:,.2f}}}{{{harga_beli_usd:,.2f}}} \times 100 = {persen:.2f}\%
             \end{{align*}}
             """)
+        else:
+            st.warning("Masukkan nilai yang valid untuk melihat hasil perhitungan.")
 
     # Keterangan
     st.markdown("### 📘 Keterangan Notasi")
