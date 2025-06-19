@@ -54,11 +54,11 @@ with tab1:
     st.latex(r"Z = c₁X + c₂Y")
     st.markdown("""Keterangan""")
     st.markdown(r"""
-    - $Z$ : Total biaya atau total keuntungan  
-    - $c₁$ : Biaya atau keuntungan per unit $X$  
-    - $c₂$ : Biaya atau keuntungan per unit $Y$  
-    - $X$ : Jumlah unit produk (misal: Meja)  
-    - $Y$ : Jumlah unit produk (misal: Kursi)
+    - $Z$ &: Total biaya atau total keuntungan  
+    - $c₁$ &: Biaya atau keuntungan per unit $X$  
+    - $c₂$ &: Biaya atau keuntungan per unit $Y$  
+    - $X$ &: Jumlah unit produk (misal: Meja)  
+    - $Y$ &: Jumlah unit produk (misal: Kursi)
     """)
 
     # ===============================
@@ -213,13 +213,13 @@ with tab2:
 
     
     st.markdown("""Keterangan""")
-    st.code("""
-        EOQ   = Economic Order Quantity (jumlah pemesanan ekonomis)
-        D     = Demand (jumlah kebutuhan (tuntutan barang per tahun)
-        S     = Ordering Cost (biaya pemesanan per pesanan)
-        H     = Holding Cost (biaya penyimpanan per unit per tahun)
-        N     = Frekuensi pemesanan
-        T     = Interval pemesanan
+    st.markdown(r"""
+        $EOQ$ &: Economic Order Quantity (jumlah pemesanan ekonomis)
+        &D&   &: Demand (jumlah kebutuhan (tuntutan barang per tahun)
+        &S&   &: Ordering Cost (biaya pemesanan per pesanan)
+        &H    &: Holding Cost (biaya penyimpanan per unit per tahun)
+        &&    &: Frekuensi pemesanan
+        &T&   &: Interval pemesanan
         """)
     
     D = st.number_input("📅 Permintaan Tahunan (D/unit)", value=10000)
