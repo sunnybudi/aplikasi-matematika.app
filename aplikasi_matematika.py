@@ -75,9 +75,8 @@ with tab1:
         laba_kursi = st.number_input("Keuntungan per Kursi (c₂)", value=200_000)
         harga_kursi = st.number_input("Harga Jual Kursi", value=500_000)
 
-    if st.button("Hitung Total (Z)", key="btn_z"):
+    if all([c1, c2, X, Y]):
         Z = laba_meja * x + laba_kursi * y
-        st.success(f"Hasil: Z = {Z:,.0f}")
     
         st.subheader("🧮 Perhitungan Berdasarkan Input")
         st.latex(rf"""
@@ -101,12 +100,12 @@ with tab1:
     # ===============================
     # Perhitungan Fungsi Tujuan Z
     # ===============================
-    z1 = 0
+    z1 = laba_meja * x + laba_kursi *y
     z2 = laba_meja * x
     z3 = laba_kursi * y
 
     st.markdown("### 🔎 Hasil Fungsi Tujuan Z:")
-    st.write(f"Z(0, 0) = {z1}")
+    st.write(f"Z({x}, {y}) = {format_rupiah(z1)}")
     st.write(f"Z({x}, 0) = {format_rupiah(z2)}")
     st.write(f"Z(0, {y}) = {format_rupiah(z3)}")
 
@@ -117,7 +116,6 @@ with tab1:
         solusi = f"({y}, 0)"
     else:
         solusi = "(0, 0)"
-    st.success(f"💡 Solusi optimal: {solusi} dengan keuntungan maksimum sebesar {format_rupiah(z_opt)}")
 
     # ===============================
     # Total Penjualan dan Keuntungan
@@ -249,8 +247,6 @@ with tab2:
             EOQ = math.sqrt((2 * D * S) / H)
             N = D / EOQ
             T = 365 / N  # diasumsikan 1 tahun = 365 hari
-    
-            st.success(f"EOQ: {EOQ:.2f} unit | Frekuensi Pesan (N): {N:.2f} | Interval (T): {T:.2f} hari")
     
             st.subheader("🧮 Perhitungan Berdasarkan Input")
             st.latex(rf"""
