@@ -75,7 +75,7 @@ with tab1:
         laba_kursi = st.number_input("Keuntungan per Kursi (c₂)", value=200_000)
         harga_kursi = st.number_input("Harga Jual Kursi", value=500_000)
 
-    if all([c1, c2, X, Y]):
+    if all([laba_meja, laba_kursi, x, y]):
         Z = laba_meja * x + laba_kursi * y
     
         st.subheader("🧮 Perhitungan Berdasarkan Input")
