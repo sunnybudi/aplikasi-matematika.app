@@ -404,7 +404,13 @@ with tab3:
 # TAB 4: Perhitungan untung dan rugi
 # ===================================
 with tab4:
-    st.header("💱 Kalkulasi Untung/Rugi dari Konversi Mata Uang")
+    st.header("💱 Konversi Mata Uang untuk kalkulasi Untung dan Rugi")
+    st.markdown("""
+        ### 🔧 Studi Kasus
+        PT Kreasi Untung Indonesia yang merupakan sebuah perusahaan furnitur memproduksi Meja dan Kursi. 
+        Perusahaan saat ini memulai ekspand bisnis baru ke luar negeri. Untuk itu perusahaan membutuhkan aplikasi
+        matematika untuk menghitung untung dan rugi ketika mata uangnya dikonversikan.
+    """)
 
     # Pilihan arah konversi
     arah_konversi = st.selectbox("Arah Konversi Mata Uang", ["USD → Rupiah", "Rupiah → USD"])
@@ -412,8 +418,8 @@ with tab4:
     kurs = st.number_input("Kurs (Rp per USD)", min_value=0.01, format="%.2f")
 
     if arah_konversi == "USD → Rupiah":
-        harga_usd = st.number_input("Harga Beli (USD)", min_value=0.0, format="%.2f")
-        harga_jual_rp = st.number_input("Harga Jual (Rp)", min_value=0.0, format="%.2f")
+        harga_usd = st.number_input("Harga Modal (USD)", min_value=0, format="%.2f")
+        harga_jual_rp = st.number_input("Harga Jual (Rp)", min_value=0, format="%.2f")
 
         if harga_usd > 0 and harga_jual_rp > 0:
             harga_beli_rp = harga_usd * kurs
@@ -426,7 +432,7 @@ with tab4:
             st.subheader("🧮 Perhitungan")
             st.latex(rf"""
             \begin{{align*}}
-            \text{{Harga Beli (Rp)}} &= {harga_usd} \times {kurs} = {harga_beli_rp:,.0f} \\
+            \text{{Harga Modal (Rp)}} &= {harga_usd} \times {kurs} = {harga_beli_rp:,.0f} \\
             \text{{{hasil_text}}} &= {harga_jual_rp:,.0f} - {harga_beli_rp:,.0f} = {selisih:,.0f} \\
             \text{{Persentase}} &= \frac{{{selisih:,.0f}}}{{{harga_beli_rp:,.0f}}} \times 100 = {persen:.2f}\%
             \end{{align*}}
@@ -438,13 +444,13 @@ with tab4:
             st.markdown("### 📊 Grafik Perbandingan Harga Beli vs Harga Jual (Rp)")
 
             fig, ax = plt.subplots()
-            labels = ['Harga Beli (Rp)', 'Harga Jual (Rp)']
+            labels = ['Harga Modal (Rp)', 'Harga Jual (Rp)']
             values = [harga_beli_rp, harga_jual_rp]
             colors = ['orange', 'green' if selisih >= 0 else 'red']
 
             bars = ax.bar(labels, values, color=colors)
             max_val = max(values)
-            ax.set_ylim(0, max_val * 1.15)
+            ax.set_ylim(0, max_val * 0)
 
             for bar in bars:
                 yval = bar.get_height()
@@ -452,14 +458,14 @@ with tab4:
                         f"Rp {yval:,.0f}", ha='center', va='bottom', fontsize=10)
 
             ax.set_ylabel("Rupiah")
-            ax.set_title("Perbandingan Harga Beli dan Harga Jual")
+            ax.set_title("Perbandingan Harga Modal dan Harga Jual")
             ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{int(x):,}'.replace(",", ".")))
             plt.tight_layout()
             st.pyplot(fig)
 
     else:  # Rupiah → USD
-        harga_beli_rp = st.number_input("Harga Beli (Rp)", min_value=0.0, format="%.2f")
-        harga_jual_usd = st.number_input("Harga Jual (USD)", min_value=0.0, format="%.2f")
+        harga_beli_rp = st.number_input("Harga Modal (Rp)", min_value=0, format="%.2f")
+        harga_jual_usd = st.number_input("Harga Jual (USD)", min_value=0, format="%.2f")
     
         if kurs > 0 and harga_beli_rp > 0 and harga_jual_usd > 0:
             harga_beli_usd = harga_beli_rp / kurs
@@ -472,7 +478,7 @@ with tab4:
             st.subheader("🧮 Perhitungan")
             st.latex(rf"""
             \begin{{align*}}
-            \text{{Harga Beli (USD)}} &= \frac{{{harga_beli_rp:,.0f}}}{{{kurs:,.2f}}} = {harga_beli_usd:,.2f} \\
+            \text{{Harga Modal (USD)}} &= \frac{{{harga_beli_rp:,.0f}}}{{{kurs:,.2f}}} = {harga_beli_usd:,.2f} \\
             \text{{{hasil_text}}} &= {harga_jual_usd:,.2f} - {harga_beli_usd:,.2f} = {selisih_usd:,.2f} \\
             \text{{Persentase}} &= \frac{{{selisih_usd:,.2f}}}{{{harga_beli_usd:,.2f}}} \times 100 = {persen:.2f}\%
             \end{{align*}}
@@ -481,16 +487,16 @@ with tab4:
             # ======================
             # GRAFIK dalam USD
             # ======================
-            st.markdown("### 📊 Grafik Perbandingan Harga Beli vs Harga Jual (USD)")
+            st.markdown("### 📊 Grafik Perbandingan Harga Modal vs Harga Jual (USD)")
 
             fig, ax = plt.subplots()
-            labels = ['Harga Beli (USD)', 'Harga Jual (USD)']
+            labels = ['Harga Modal (USD)', 'Harga Jual (USD)']
             values = [harga_beli_usd, harga_jual_usd]
             colors = ['orange', 'green' if selisih_usd >= 0 else 'red']
 
             bars = ax.bar(labels, values, color=colors)
             max_val = max(values)
-            ax.set_ylim(0, max_val * 1.15)
+            ax.set_ylim(0, max_val * 0)
 
             for bar in bars:
                 yval = bar.get_height()
@@ -498,7 +504,7 @@ with tab4:
                         f"USD {yval:,.2f}", ha='center', va='bottom', fontsize=10)
 
             ax.set_ylabel("USD")
-            ax.set_title("Perbandingan Harga Beli dan Harga Jual")
+            ax.set_title("Perbandingan Harga Modal dan Harga Jual")
             ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:,.2f}'))
             plt.tight_layout()
             st.pyplot(fig)
@@ -507,14 +513,14 @@ with tab4:
 
     # Keterangan
     st.markdown("### 📘 Keterangan Notasi")
-    st.code("""
-Kurs               = Nilai tukar Rupiah terhadap USD
-Harga Beli (USD)   = Nilai barang dari luar negeri
-Harga Beli (Rp)    = Nilai konversi ke mata uang lokal
-Harga Jual         = Harga jual yang ditargetkan
-Untung/Rugi        = Selisih harga jual - harga beli
-Persentase         = (Selisih / Harga Beli) × 100
-""")
+    st.markdown(r"""
+    - $Kurs$               = Nilai tukar Rupiah terhadap USD
+    - $Harga Modal (USD)$  = Nilai modal barang dari luar negeri
+    - $Harga Modal (Rp)$   = Nilai konversi ke mata uang lokal
+    - $Harga Jual$         = Harga jual yang ditargetkan
+    - $Untung/Rugi$        = Selisih harga jual - harga beli
+    - $Persentase$         = (Selisih / Harga Beli) × 100
+    """)
 
 # =========================
 # TAB 5: Turunan Parsial
