@@ -242,7 +242,7 @@ with tab2:
         freq = D / EOQ
         cycle_days = 365 / freq
 
-    if st.button("Hitung EOQ"):
+    if D > 0 and S > 0 and H > 0:
         try:
             EOQ = math.sqrt((2 * D * S) / H)
             N = D / EOQ
