@@ -470,7 +470,7 @@ fig, ax = plt.subplots()
 
 # Data
 labels = ['Harga Beli (Rp)', 'Harga Jual (Rp)']
-values = ['harga_beli_rp, harga_jual_rp']
+values = ['harga_beli_rp', 'harga_jual_rp']
 colors = ['orange', 'green' if selisih >= 0 else 'red']
 
 bars = ax.bar(labels, values, color=colors)
