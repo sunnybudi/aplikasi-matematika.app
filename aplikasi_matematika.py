@@ -52,14 +52,16 @@ with tab1:
     """)
 
     st.latex(r"Z = c₁X + c₂Y")
-    st.markdown("""Keterangan""")
-    st.markdown(r"""
-    - $Z$  : Total biaya atau total keuntungan  
-    - $c₁$ : Biaya atau keuntungan per unit $X$  
-    - $c₂$ : Biaya atau keuntungan per unit $Y$  
-    - $X$  : Jumlah unit produk (misal: Meja)  
-    - $Y$  : Jumlah unit produk (misal: Kursi)
-    """)
+    st.markdown("### 📘 Keterangan Notasi Model Optimasi Produksi:")
+    st.markdown("""
+    <pre style="font-family: monospace; font-size: 14px;">
+    Z   : Total biaya atau total keuntungan
+    c₁  : Biaya atau keuntungan per unit X
+    c₂  : Biaya atau keuntungan per unit Y
+    X   : Jumlah unit produk (misal: Meja)
+    Y   : Jumlah unit produk (misal: Kursi)
+    </pre>
+    """, unsafe_allow_html=True)
 
     # ===============================
     # Input Harga dan Keuntungan
