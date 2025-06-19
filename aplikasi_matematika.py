@@ -404,33 +404,65 @@ with tab3:
 # TAB 4: Kebutuhan Bahan Baku
 # =========================
 with tab4:
-    st.header("5️⃣ Kebutuhan Bahan Baku")
-    st.write("Studi kasus: Kebutuhan bahan baku untuk pemenuhan produksi.")
-    produk = st.text_input("Nama Produk:", "Meja")
-    jumlah_produk = st.number_input("Jumlah Produk yang Akan Diproduksi:", min_value=0, value=100)
+    st.header("💱 Kalkulasi Untung/Rugi dari Konversi Mata Uang")
 
-    st.markdown("Masukkan kebutuhan bahan baku per unit produk:")
-    bahan1 = st.text_input("Nama Bahan Baku 1:", "Kayu")
-    jumlah1 = st.number_input(f"Jumlah {bahan1} per unit {produk}:", min_value=0, value=5)
+    # Pilihan arah konversi
+    arah_konversi = st.selectbox("Arah Konversi Mata Uang", ["USD → Rupiah", "Rupiah → USD"])
 
-    bahan2 = st.text_input("Nama Bahan Baku 2:", "Paku")
-    jumlah2 = st.number_input(f"Jumlah {bahan2} per unit {produk}:", min_value=0, value=10)
+    kurs = st.number_input("Kurs (Rp per USD)", min_value=0.01, format="%.2f")
 
-    total1 = jumlah_produk * jumlah1
-    total2 = jumlah_produk * jumlah2
+    if arah_konversi == "USD → Rupiah":
+        harga_usd = st.number_input("Harga Beli (USD)", min_value=0.0, format="%.2f")
+        harga_jual_rp = st.number_input("Harga Jual (Rp)", min_value=0.0, format="%.2f")
 
-    st.subheader("📐 Rumus Perhitungan")
-    st.latex(r"\text{Total Bahan Baku} = \text{Jumlah Produk} \times \text{Jumlah Bahan Baku per Unit}")
+        if harga_usd > 0 and harga_jual_rp > 0:
+            harga_beli_rp = harga_usd * kurs
+            selisih = harga_jual_rp - harga_beli_rp
+            persen = (selisih / harga_beli_rp) * 100
 
-    st.success("✅ Total Kebutuhan Bahan Baku:")
-    st.write(f"🔹 {bahan1}: {total1} unit")
-    st.write(f"🔹 {bahan2}: {total2} unit")
+            hasil_text = "Untung" if selisih > 0 else "Rugi"
+            st.success(f"{hasil_text}: Rp {abs(selisih):,.0f} ({abs(persen):.2f}%)")
 
-    fig, ax = plt.subplots()
-    ax.bar([bahan1, bahan2], [total1, total2], color=['green', 'brown'])
-    ax.set_ylabel("Jumlah Kebutuhan")
-    ax.set_title("Total Kebutuhan Bahan Baku")
-    st.pyplot(fig)
+            st.subheader("🧮 Perhitungan")
+            st.latex(rf"""
+            \begin{{align*}}
+            \text{{Harga Beli (Rp)}} &= {harga_usd} \times {kurs} = {harga_beli_rp:,.0f} \\
+            \text{{{hasil_text}}} &= {harga_jual_rp:,.0f} - {harga_beli_rp:,.0f} = {selisih:,.0f} \\
+            \text{{Persentase}} &= \frac{{{selisih:,.0f}}}{{{harga_beli_rp:,.0f}}} \times 100 = {persen:.2f}\%
+            \end{{align*}}
+            """)
+
+    else:  # Rupiah → USD
+        harga_beli_rp = st.number_input("Harga Beli (Rp)", min_value=0.0, format="%.2f")
+        harga_jual_usd = st.number_input("Harga Jual (USD)", min_value=0.0, format="%.2f")
+
+        if harga_beli_rp > 0 and harga_jual_usd > 0:
+            harga_beli_usd = harga_beli_rp / kurs
+            selisih_usd = harga_jual_usd - harga_beli_usd
+            persen = (selisih_usd / harga_beli_usd) * 100
+
+            hasil_text = "Untung" if selisih_usd > 0 else "Rugi"
+            st.success(f"{hasil_text}: USD {abs(selisih_usd):,.2f} ({abs(persen):.2f}%)")
+
+            st.subheader("🧮 Perhitungan")
+            st.latex(rf"""
+            \begin{{align*}}
+            \text{{Harga Beli (USD)}} &= \frac{{{harga_beli_rp}}}{{{kurs}}} = {harga_beli_usd:,.2f} \\
+            \text{{{hasil_text}}} &= {harga_jual_usd:,.2f} - {harga_beli_usd:,.2f} = {selisih_usd:,.2f} \\
+            \text{{Persentase}} &= \frac{{{selisih_usd:,.2f}}}{{{harga_beli_usd:,.2f}}} \times 100 = {persen:.2f}\%
+            \end{{align*}}
+            """)
+
+    # Keterangan
+    st.markdown("### 📘 Keterangan Notasi")
+    st.code("""
+Kurs               = Nilai tukar Rupiah terhadap USD
+Harga Beli (USD)   = Nilai barang dari luar negeri
+Harga Beli (Rp)    = Nilai konversi ke mata uang lokal
+Harga Jual         = Harga jual yang ditargetkan
+Untung/Rugi        = Selisih harga jual - harga beli
+Persentase         = (Selisih / Harga Beli) × 100
+""")
 
 # =========================
 # TAB 5: Turunan Parsial
