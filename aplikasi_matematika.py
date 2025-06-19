@@ -459,7 +459,7 @@ with tab4:
         harga_beli_rp = st.number_input("Harga Beli (Rp)", min_value=0.0, format="%.2f")
         harga_jual_usd = st.number_input("Harga Jual (USD)", min_value=0.0, format="%.2f")
 
-        if harga_beli_rp > 0 and harga_jual_usd > 0:
+        if kurs > 0 and harga_beli_rp > 0 and harga_jual_usd > 0:
             harga_beli_usd = harga_beli_rp / kurs
             selisih_usd = harga_jual_usd - harga_beli_usd
             persen = (selisih_usd / harga_beli_usd) * 100
