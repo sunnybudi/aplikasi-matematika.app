@@ -433,9 +433,9 @@ with tab4:
             """)
 
             # ======================
-            # GRAFIK
+            # GRAFIK dalam Rupiah
             # ======================
-            st.markdown("### 📊 Grafik Perbandingan Harga Beli vs Harga Jual")
+            st.markdown("### 📊 Grafik Perbandingan Harga Beli vs Harga Jual (Rp)")
 
             fig, ax = plt.subplots()
             labels = ['Harga Beli (Rp)', 'Harga Jual (Rp)']
@@ -463,10 +463,10 @@ with tab4:
             harga_beli_usd = harga_beli_rp / kurs
             selisih_usd = harga_jual_usd - harga_beli_usd
             persen = (selisih_usd / harga_beli_usd) * 100
-    
+
             hasil_text = "Untung" if selisih_usd > 0 else "Rugi"
             st.success(f"{hasil_text}: USD {abs(selisih_usd):,.2f} ({abs(persen):.2f}%)")
-    
+
             st.subheader("🧮 Perhitungan")
             st.latex(rf"""
             \begin{{align*}}
@@ -475,6 +475,29 @@ with tab4:
             \text{{Persentase}} &= \frac{{{selisih_usd:,.2f}}}{{{harga_beli_usd:,.2f}}} \times 100 = {persen:.2f}\%
             \end{{align*}}
             """)
+
+            # ======================
+            # GRAFIK dalam USD
+            # ======================
+            st.markdown("### 📊 Grafik Perbandingan Harga Beli vs Harga Jual (USD)")
+
+            fig, ax = plt.subplots()
+            labels = ['Harga Beli (USD)', 'Harga Jual (USD)']
+            values = [harga_beli_usd, harga_jual_usd]
+            colors = ['orange', 'green' if selisih_usd >= 0 else 'red']
+
+            bars = ax.bar(labels, values, color=colors)
+
+            for bar in bars:
+                yval = bar.get_height()
+                ax.text(bar.get_x() + bar.get_width()/2, yval + 0.05*yval,
+                        f"USD {yval:,.2f}", ha='center', va='bottom', fontsize=10)
+
+            ax.set_ylabel("USD")
+            ax.set_title("Perbandingan Harga Beli dan Harga Jual")
+            ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:,.2f}'))
+            plt.tight_layout()
+            st.pyplot(fig)
         else:
             st.warning("Masukkan nilai yang valid untuk melihat hasil perhitungan.")
 
