@@ -466,16 +466,18 @@ Persentase         = (Selisih / Harga Beli) × 100
 
 st.markdown("### 📊 Grafik Perbandingan Harga Beli vs Harga Jual")
 
+# Plot
 fig, ax = plt.subplots()
 
-# Data
+# Data grafik
 labels = ['Harga Beli (Rp)', 'Harga Jual (Rp)']
-values = ['harga_beli_rp', 'harga_jual_rp']
+values = [harga_beli_rp, harga_jual_rp]
 colors = ['orange', 'green' if selisih >= 0 else 'red']
 
+# Buat batang
 bars = ax.bar(labels, values, color=colors)
 
-# Tampilkan nilai di atas batang
+# Tampilkan angka di atas batang
 for bar in bars:
     yval = bar.get_height()
     ax.text(bar.get_x() + bar.get_width()/2, yval + 0.05*yval,
