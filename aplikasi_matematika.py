@@ -443,6 +443,8 @@ with tab4:
             colors = ['orange', 'green' if selisih >= 0 else 'red']
 
             bars = ax.bar(labels, values, color=colors)
+            max_val = max(values)
+            ax.set_ylim(0, max_val * 1.15)
 
             for bar in bars:
                 yval = bar.get_height()
@@ -487,6 +489,8 @@ with tab4:
             colors = ['orange', 'green' if selisih_usd >= 0 else 'red']
 
             bars = ax.bar(labels, values, color=colors)
+            max_val = max(values)
+            ax.set_ylim(0, max_val * 1.15)
 
             for bar in bars:
                 yval = bar.get_height()
