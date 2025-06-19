@@ -214,12 +214,12 @@ with tab2:
     
     st.markdown("""Keterangan""")
     st.markdown(r"""
-    - $EOQ$ : Economic Order Quantity (jumlah pemesanan ekonomis)
-    - $D$   : Demand (jumlah kebutuhan (tuntutan barang per tahun)
-    - $S$   : Ordering Cost (biaya pemesanan per pesanan)
-    - $H$   : Holding Cost (biaya penyimpanan per unit per tahun)
-    - $N$   : Frekuensi pemesanan
-    - $T$   : Interval pemesanan
+    - $EOQ$ = Economic Order Quantity (jumlah pemesanan ekonomis)
+    - $D$   = Demand (jumlah kebutuhan (tuntutan barang per tahun)
+    - $S$   = Ordering Cost (biaya pemesanan per pesanan)
+    - $H$   = Holding Cost (biaya penyimpanan per unit per tahun)
+    - $N$   = Frekuensi pemesanan
+    - $T$   = Interval pemesanan
     """)
     
     D = st.number_input("📅 Permintaan Tahunan (D/unit)", value=10000)
