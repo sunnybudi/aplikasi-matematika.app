@@ -76,7 +76,7 @@ with tab1:
         harga_kursi = st.number_input("Harga Jual Kursi", value=500_000)
 
     if st.button("Hitung Total (Z)", key="btn_z"):
-        Z = laba_meja * X + laba_kursi * Y
+        Z = laba_meja * x + laba_kursi * y
         st.success(f"Hasil: Z = {Z:,.0f}")
     
         st.subheader("🧮 Perhitungan Berdasarkan Input")
