@@ -400,9 +400,9 @@ with tab3:
         ax2.set_title("Distribusi Probabilitas Pelanggan dalam Sistem")
         st.pyplot(fig2)
 
-# =========================
-# TAB 4: Kebutuhan Bahan Baku
-# =========================
+# ===================================
+# TAB 4: Perhitungan untung dan rugi
+# ===================================
 with tab4:
     st.header("💱 Kalkulasi Untung/Rugi dari Konversi Mata Uang")
 
@@ -431,6 +431,29 @@ with tab4:
             \text{{Persentase}} &= \frac{{{selisih:,.0f}}}{{{harga_beli_rp:,.0f}}} \times 100 = {persen:.2f}\%
             \end{{align*}}
             """)
+
+            # ======================
+            # GRAFIK
+            # ======================
+            st.markdown("### 📊 Grafik Perbandingan Harga Beli vs Harga Jual")
+
+            fig, ax = plt.subplots()
+            labels = ['Harga Beli (Rp)', 'Harga Jual (Rp)']
+            values = [harga_beli_rp, harga_jual_rp]
+            colors = ['orange', 'green' if selisih >= 0 else 'red']
+
+            bars = ax.bar(labels, values, color=colors)
+
+            for bar in bars:
+                yval = bar.get_height()
+                ax.text(bar.get_x() + bar.get_width()/2, yval + 0.05*yval,
+                        f"Rp {yval:,.0f}", ha='center', va='bottom', fontsize=10)
+
+            ax.set_ylabel("Rupiah")
+            ax.set_title("Perbandingan Harga Beli dan Harga Jual")
+            ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{int(x):,}'.replace(",", ".")))
+            plt.tight_layout()
+            st.pyplot(fig)
 
     else:  # Rupiah → USD
         harga_beli_rp = st.number_input("Harga Beli (Rp)", min_value=0.0, format="%.2f")
@@ -463,32 +486,6 @@ Harga Jual         = Harga jual yang ditargetkan
 Untung/Rugi        = Selisih harga jual - harga beli
 Persentase         = (Selisih / Harga Beli) × 100
 """)
-
-st.markdown("### 📊 Grafik Perbandingan Harga Beli vs Harga Jual")
-
-# Plot
-fig, ax = plt.subplots()
-
-# Data grafik
-labels = ['Harga Beli (Rp)', 'Harga Jual (Rp)']
-values = [harga_beli_rp, harga_jual_rp]
-colors = ['orange', 'green' if selisih >= 0 else 'red']
-
-# Buat batang
-bars = ax.bar(labels, values, color=colors)
-
-# Tampilkan angka di atas batang
-for bar in bars:
-    yval = bar.get_height()
-    ax.text(bar.get_x() + bar.get_width()/2, yval + 0.05*yval,
-            f"Rp {yval:,.0f}", ha='center', va='bottom', fontsize=10)
-
-ax.set_ylabel("Rupiah")
-ax.set_title("Perbandingan Harga Beli dan Harga Jual")
-ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{int(x):,}'.replace(",", ".")))
-
-plt.tight_layout()
-st.pyplot(fig)
 
 # =========================
 # TAB 5: Turunan Parsial
