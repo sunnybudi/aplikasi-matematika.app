@@ -412,15 +412,24 @@ with tab4:
         matematika untuk menghitung untung dan rugi ketika mata uangnya dikonversikan.
     """)
 
+    colx1, colx2 = st.columns(2)
+    with colx1:
+        arah_konversi = st.selectbox("Arah Konversi Mata Uang", ["USD → Rupiah", "Rupiah → USD"])
+    with colx2:
+        default_kurs = 16000 if arah_konversi == "USD → Rupiah" else 1
+        kurs = st.number_input("Kurs (Rp per USD)", min_value=1, step=100, value=default_kurs)
+
     # Rumus-Rumus Umum
-    st.markdown("### 📐 Rumus-Rumus Terkait")
-    st.latex(r"""
+    st.markdown("""
+    ### 📐 Rumus-Rumus Terkait
+    \[
     \begin{align*}
-    \text{Konversi USD ke Rupiah:} &\quad \text{Harga\_Modal\_Rp} = \text{Harga\_USD} \times \text{Kurs} \\
-    \text{Konversi Rupiah ke USD:} &\quad \text{Harga\_Modal\_USD} = \frac{\text{Harga\_Rp}}{\text{Kurs}} \\
-    \text{Untung/Rugi:} &\quad \text{Selisih} = \text{Harga\_Jual} - \text{Harga\_Modal} \\
-    \text{Persentase Untung/Rugi:} &\quad \frac{\text{Selisih}}{\text{Harga\_Modal}} \times 100
+    \text{Konversi USD ke Rupiah:} &\quad Harga\_Modal\_Rp = Harga\_USD \times Kurs \\
+    \text{Konversi Rupiah ke USD:} &\quad Harga\_Modal\_USD = \frac{Harga\_Rp}{Kurs} \\
+    \text{Untung/Rugi:} &\quad Selisih = Harga\_Jual - Harga\_Modal \\
+    \text{Persentase Untung/Rugi:} &\quad \frac{Selisih}{Harga\_Modal} \times 100
     \end{align*}
+    \]
     """)
 
     # Keterangan Notasi
@@ -433,12 +442,6 @@ with tab4:
     - $Untung/Rugi$        = Selisih harga jual - harga beli
     - $Persentase$         = (Selisih / Harga Beli) × 100
     """)
-
-    colx1, colx2 = st.columns(2)
-    with colx1:
-        arah_konversi = st.selectbox("Arah Konversi Mata Uang", ["USD → Rupiah", "Rupiah → USD"])
-    with colx2:
-        kurs = st.number_input("Kurs (Rp per USD)", min_value=1, step=100)
 
     col1, col2 = st.columns(2)
 
@@ -497,7 +500,7 @@ with tab4:
             persen = (selisih_usd / harga_beli_usd) * 100
 
             hasil_text = "Untung" if selisih_usd > 0 else "Rugi"
-            st.success(f"{hasil_text}: USD {abs(selisih_usd):,.2f} ({abs(persen):.2f}%)")
+            st.success(f"{hasil_text}: USD {abs(selisih_usd):,.2f} ({abs(persen):,.2f}%)")
 
             st.subheader("🧮 Perhitungan")
             st.latex(rf"""
