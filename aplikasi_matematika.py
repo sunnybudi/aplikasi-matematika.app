@@ -416,10 +416,10 @@ with tab4:
     st.markdown("### 📐 Rumus-Rumus Terkait")
     st.latex(r"""
     \begin{align*}
-    \text{Konversi USD ke Rupiah:} &\quad \text{Harga\_Modal\_Rp} = \text{Harga\_USD} \times \text{Kurs} \\
-    \text{Konversi Rupiah ke USD:} &\quad \text{Harga\_Modal\_USD} = \frac{\text{Harga\_Rp}}{\text{Kurs}} \\
-    \text{Untung/Rugi:} &\quad \text{Selisih} = \text{Harga\_Jual} - \text{Harga\_Modal} \\
-    \text{Persentase Untung/Rugi:} &\quad \frac{\text{Selisih}}{\text{Harga\_Modal}} \times 100
+    \text{Konversi USD ke Rupiah:} &\quad \text{Harga\Modal\Rp} = \text{Harga\USD} \times \text{Kurs} \\
+    \text{Konversi Rupiah ke USD:} &\quad \text{Harga\Modal\USD} = \frac{\text{Harga\Rp}}{\text{Kurs}} \\
+    \text{Untung/Rugi:} &\quad \text{Selisih} = \text{Harga\Jual} - \text{Harga\Modal} \\
+    \text{Persentase Untung/Rugi:} &\quad \frac{\text{Selisih}}{\text{Harga\Modal}} \times 100
     \end{align*}
     """)
 
@@ -516,7 +516,7 @@ with tab4:
             colors = ['orange', 'green' if selisih_usd >= 0 else 'red']
             bars = ax.bar(labels, values, color=colors)
             max_val = max(values)
-            ax.set_ylim(0, max_val * 0)
+            ax.set_ylim(0, max(values) * 1.2)
 
             for bar in bars:
                 yval = bar.get_height()
