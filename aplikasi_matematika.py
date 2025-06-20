@@ -415,10 +415,12 @@ with tab4:
     # Rumus-Rumus Umum
     st.markdown("""
     ### 📐 Rumus-Rumus Terkait
-    - Konversi USD ke Rupiah: \( Harga\_Modal\_Rp = Harga\_USD \times Kurs \)
-    - Konversi Rupiah ke USD: \( Harga\_Modal\_USD = \frac{Harga\_Rp}{Kurs} \)
-    - Untung/Rugi: \( Selisih = Harga\_Jual - Harga\_Modal \)
-    - Persentase Untung/Rugi: \( \frac{Selisih}{Harga\_Modal} \times 100 \)
+    \[
+    \text{Konversi USD ke Rupiah: } Harga\_Modal\_Rp = Harga\_USD \times Kurs \\
+    \text{Konversi Rupiah ke USD: } Harga\_Modal\_USD = \frac{Harga\_Rp}{Kurs} \\
+    \text{Untung/Rugi: } Selisih = Harga\_Jual - Harga\_Modal \\
+    \text{Persentase Untung/Rugi: } \frac{Selisih}{Harga\_Modal} \times 100
+    \]
     """)
 
     # Keterangan Notasi
