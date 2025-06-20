@@ -67,13 +67,13 @@ with tab1:
     st.markdown("### Harga Jual dan Keuntungan per Unit")
     col1, col2= st.columns(2)
     with col1:
-        x = st.number_input("Jumlah Produksi Meja (X)", value=10)
-        laba_meja = st.number_input("Keuntungan per Meja (c₁)", value=400_000)
-        harga_meja = st.number_input("Harga Jual Meja", value=800_000)
+        x = st.number_input("Jumlah Produksi Meja (X)", value=0)
+        laba_meja = st.number_input("Keuntungan per Meja (c₁)", value=0)
+        harga_meja = st.number_input("Harga Jual Meja", value=0)
     with col2:
-        y = st.number_input("Jumlah Produksi Kursi (Y)", value=20)
-        laba_kursi = st.number_input("Keuntungan per Kursi (c₂)", value=200_000)
-        harga_kursi = st.number_input("Harga Jual Kursi", value=500_000)
+        y = st.number_input("Jumlah Produksi Kursi (Y)", value=0)
+        laba_kursi = st.number_input("Keuntungan per Kursi (c₂)", value=0)
+        harga_kursi = st.number_input("Harga Jual Kursi", value=0)
 
     if all([laba_meja, laba_kursi, x, y]):
         Z = laba_meja * x + laba_kursi * y
@@ -233,9 +233,9 @@ with tab2:
     - $T$   = Interval pemesanan
     """)
     
-    D = st.number_input("📅 Permintaan Tahunan (D/unit)", value=10000)
-    S = st.number_input("🛒 Biaya Pemesanan per Order (S/Rp)", value=50000)
-    H = st.number_input("🏬 Biaya Penyimpanan per Unit per Tahun (H/Rp)", value=2000)
+    D = st.number_input("📅 Permintaan Tahunan (D/unit)", value=0)
+    S = st.number_input("🛒 Biaya Pemesanan per Order (S/Rp)", value=0)
+    H = st.number_input("🏬 Biaya Penyimpanan per Unit per Tahun (H/Rp)", value=0)
 
     if D > 0 and S > 0 and H > 0:
         EOQ = math.sqrt((2 * D * S) / H)
@@ -332,9 +332,9 @@ with tab3:
     # Input parameter
     col1, col2 = st.columns(2)
     with col1:
-        lambd = st.number_input("📥 Tingkat Kedatangan (λ) - pelanggan/jam", min_value=0, value=2)
+        lambd = st.number_input("📥 Tingkat Kedatangan (λ) - pelanggan/jam", min_value=0, value=0)
     with col2:
-        mu = st.number_input("⚙️ Tingkat Pelayanan (μ) - pelanggan/jam", min_value=0, value=3)
+        mu = st.number_input("⚙️ Tingkat Pelayanan (μ) - pelanggan/jam", min_value=0, value=0)
 
     if lambd >= mu:
         st.error("⚠️ Sistem tidak stabil (λ ≥ μ). Harap pastikan λ < μ.")
