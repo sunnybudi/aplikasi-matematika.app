@@ -301,16 +301,14 @@ with tab3:
         untuk memantau proses pembelian di server web perusahaan.
     """)
 
-    # Tampilkan Rumus Umum Sebelum Input
-    st.subheader("📘 Rumus-Rumus Umum Model M/M/1")
+     # Rumus-Rumus Umum
+    st.markdown("### 📐 Rumus-Rumus Terkait")
     st.latex(r"""
     \begin{align*}
-    \rho &= \frac{\lambda}{\mu} \\
-    L &= \frac{\lambda}{\mu - \lambda} \\
-    L_q &= \frac{\lambda^2}{\mu(\mu - \lambda)} \\
-    W &= \frac{1}{\mu - \lambda} \\
-    W_q &= \frac{\lambda}{\mu(\mu - \lambda)} \\
-    P_0 &= 1 - \rho
+    \text{Konversi USD ke Rupiah:} &\quad \text{Harga Modal Rp} = \text{Harga USD} \times \text{Kurs} \\
+    \text{Konversi Rupiah ke USD:} &\quad \text{Harga Modal USD} = \frac{\text{Harga Rp}}{\text{Kurs}} \\
+    \text{Untung/Rugi:} &\quad \text{Selisih} = \text{Harga Jual} - \text{Harga Modal} \\
+    \text{Persentase Untung/Rugi:} &\quad \frac{\text{Selisih}}{\text{Harga Modal}} \times 100
     \end{align*}
     """)
 
