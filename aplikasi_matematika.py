@@ -413,16 +413,14 @@ with tab4:
     """)
 
     # Rumus-Rumus Umum
-    st.markdown("""
-    ### 📐 Rumus-Rumus Terkait
-    \[
+    st.markdown("### 📐 Rumus-Rumus Terkait")
+    st.latex(r"""
     \begin{align*}
-    \text{Konversi USD ke Rupiah:} &\quad Harga\_Modal\_Rp = Harga\_USD \times Kurs \\
-    \text{Konversi Rupiah ke USD:} &\quad Harga\_Modal\_USD = \frac{Harga\_Rp}{Kurs} \\
-    \text{Untung/Rugi:} &\quad Selisih = Harga\_Jual - Harga\_Modal \\
-    \text{Persentase Untung/Rugi:} &\quad \frac{Selisih}{Harga\_Modal} \times 100
+    \text{Konversi USD ke Rupiah:} &\quad \text{Harga\_Modal\_Rp} = \text{Harga\_USD} \times \text{Kurs} \\
+    \text{Konversi Rupiah ke USD:} &\quad \text{Harga\_Modal\_USD} = \frac{\text{Harga\_Rp}}{\text{Kurs}} \\
+    \text{Untung/Rugi:} &\quad \text{Selisih} = \text{Harga\_Jual} - \text{Harga\_Modal} \\
+    \text{Persentase Untung/Rugi:} &\quad \frac{\text{Selisih}}{\text{Harga\_Modal}} \times 100
     \end{align*}
-    \]
     """)
 
     # Keterangan Notasi
