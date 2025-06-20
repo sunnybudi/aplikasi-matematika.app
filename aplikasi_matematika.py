@@ -415,11 +415,11 @@ with tab4:
     # Pilihan arah konversi
     arah_konversi = st.selectbox("Arah Konversi Mata Uang", ["USD → Rupiah", "Rupiah → USD"])
 
-    kurs = st.number_input("Kurs (Rp per USD)", min_value=0, step=1000")
+    kurs = st.number_input("Kurs (Rp per USD)", min_value=0, step=1000)
 
     if arah_konversi == "USD → Rupiah":
-        harga_usd = st.number_input("Harga Modal (USD)", min_value=0, step=1000")
-        harga_jual_rp = st.number_input("Harga Jual (Rp)", min_value=0, step=1000")
+        harga_usd = st.number_input("Harga Modal (USD)", min_value=0, step=1000)
+        harga_jual_rp = st.number_input("Harga Jual (Rp)", min_value=0, step=1000)
 
         if harga_usd > 0 and harga_jual_rp > 0:
             harga_beli_rp = harga_usd * kurs
@@ -464,8 +464,8 @@ with tab4:
             st.pyplot(fig)
 
     else:  # Rupiah → USD
-        harga_beli_rp = st.number_input("Harga Modal (Rp)", min_value=0, step=1000")
-        harga_jual_usd = st.number_input("Harga Jual (USD)", min_value=0, step=1000")
+        harga_beli_rp = st.number_input("Harga Modal (Rp)", min_value=0, step=1000)
+        harga_jual_usd = st.number_input("Harga Jual (USD)", min_value=0, step=1000)
     
         if kurs > 0 and harga_beli_rp > 0 and harga_jual_usd > 0:
             harga_beli_usd = harga_beli_rp / kurs
