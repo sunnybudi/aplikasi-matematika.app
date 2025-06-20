@@ -412,24 +412,15 @@ with tab4:
         matematika untuk menghitung untung dan rugi ketika mata uangnya dikonversikan.
     """)
 
-    colx1, colx2 = st.columns(2)
-    with colx1:
-        arah_konversi = st.selectbox("Arah Konversi Mata Uang", ["USD → Rupiah", "Rupiah → USD"])
-    with colx2:
-        default_kurs = 16000 if arah_konversi == "USD → Rupiah" else 1
-        kurs = st.number_input("Kurs (Rp per USD)", min_value=1, step=100, value=default_kurs)
-
     # Rumus-Rumus Umum
-    st.markdown("""
-    ### 📐 Rumus-Rumus Terkait
-    \[
+    st.markdown("### 📐 Rumus-Rumus Terkait")
+    st.latex(r"""
     \begin{align*}
-    \text{Konversi USD ke Rupiah:} &\quad Harga\_Modal\_Rp = Harga\_USD \times Kurs \\
-    \text{Konversi Rupiah ke USD:} &\quad Harga\_Modal\_USD = \frac{Harga\_Rp}{Kurs} \\
-    \text{Untung/Rugi:} &\quad Selisih = Harga\_Jual - Harga\_Modal \\
-    \text{Persentase Untung/Rugi:} &\quad \frac{Selisih}{Harga\_Modal} \times 100
+    \text{Konversi USD ke Rupiah:} &\quad \text{Harga\_Modal\_Rp} = \text{Harga\_USD} \times \text{Kurs} \\
+    \text{Konversi Rupiah ke USD:} &\quad \text{Harga\_Modal\_USD} = \frac{\text{Harga\_Rp}}{\text{Kurs}} \\
+    \text{Untung/Rugi:} &\quad \text{Selisih} = \text{Harga\_Jual} - \text{Harga\_Modal} \\
+    \text{Persentase Untung/Rugi:} &\quad \frac{\text{Selisih}}{\text{Harga\_Modal}} \times 100
     \end{align*}
-    \]
     """)
 
     # Keterangan Notasi
@@ -442,6 +433,13 @@ with tab4:
     - $Untung/Rugi$        = Selisih harga jual - harga beli
     - $Persentase$         = (Selisih / Harga Beli) × 100
     """)
+
+    colx1, colx2 = st.columns(2)
+    with colx1:
+        arah_konversi = st.selectbox("Arah Konversi Mata Uang", ["USD → Rupiah", "Rupiah → USD"])
+    with colx2:
+        default_kurs = 16000 if arah_konversi == "USD → Rupiah" else 1
+        kurs = st.number_input("Kurs (Rp per USD)", min_value=1, step=100, value=default_kurs)
 
     col1, col2 = st.columns(2)
 
@@ -518,7 +516,7 @@ with tab4:
             colors = ['orange', 'green' if selisih_usd >= 0 else 'red']
             bars = ax.bar(labels, values, color=colors)
             max_val = max(values)
-            ax.set_ylim(0, max_val * 1.15)
+            ax.set_ylim(0, max_val * 0)
 
             for bar in bars:
                 yval = bar.get_height()
