@@ -439,7 +439,7 @@ with tab4:
         arah_konversi = st.selectbox("Arah Konversi Mata Uang", ["USD → Rupiah", "Rupiah → USD"])
     with colx2:
         default_kurs = 16000 if arah_konversi == "USD → Rupiah" else 1
-        kurs = st.number_input("Kurs (Rp per USD)", min_value=1, step=100, value=default_kurs)
+        kurs = st.number_input("Kurs (Rp per USD)", min_value=0, step=100, value=default_kurs)
 
     col1, col2 = st.columns(2)
 
