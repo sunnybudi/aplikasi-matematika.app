@@ -442,7 +442,6 @@ with tab4:
         kurs = st.number_input("Kurs (Rp per USD)", min_value=0, step=100, value=default_kurs)
 
     col1, col2 = st.columns(2)
-
     if arah_konversi == "USD → Rupiah":
         with col1:
             harga_usd = st.number_input("Harga Modal (USD)", min_value=0, step=1)
