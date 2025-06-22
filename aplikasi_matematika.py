@@ -260,8 +260,7 @@ with tab2:
             T &= \frac{{365}}{{N}} = \frac{{365}}{{{N:.2f}}} = \boxed{{\textstyle {T:.2f}}}~\text{{hari}}
             \end{{align*}}
             """)
-
-            
+ 
         except:
             st.error("Pastikan semua input terisi dan nilai H ≠ 0")
 
