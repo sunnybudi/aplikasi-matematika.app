@@ -316,17 +316,17 @@ with tab3:
 
     st.markdown("**📘 Keterangan Simbol Model M/M/1**")
     st.latex(r"""
-    \begin{align*}
-    & \lambda & : \text{Tingkat kedatangan pelanggan per satuan waktu (misalnya pelanggan per jam)} \\
-    & \mu & : \text{Tingkat pelayanan pelanggan per satuan waktu} \\
-    & \rho & : \text{Utilisasi server, yaitu } \rho = \frac{\lambda}{\mu} \\
-    & L & : \text{Rata-rata jumlah pelanggan dalam sistem (antrian + dilayani)} \\
-    & L_q & : \text{Rata-rata jumlah pelanggan dalam antrian} \\
-    & W & : \text{Waktu rata-rata pelanggan berada dalam sistem} \\
-    & W_q & : \text{Waktu rata-rata pelanggan dalam antrian} \\
-    & P_0 & : \text{Probabilitas sistem kosong (tidak ada pelanggan)} \\
-    & P_n & : \text{Probabilitas terdapat } n \text{ pelanggan dalam sistem}
-    \end{align*}
+    \begin{array}{rcl}
+    \lambda & : & \text{Tingkat kedatangan pelanggan per satuan waktu (misalnya pelanggan per jam)} \\
+    \mu & : & \text{Tingkat pelayanan pelanggan per satuan waktu} \\
+    \rho & : & \text{Utilisasi server, yaitu } \rho = \frac{\lambda}{\mu} \\
+    L & : & \text{Rata-rata jumlah pelanggan dalam sistem (antrian + dilayani)} \\
+    L_q & : & \text{Rata-rata jumlah pelanggan dalam antrian} \\
+    W & : & \text{Waktu rata-rata pelanggan berada dalam sistem} \\
+    W_q & : & \text{Waktu rata-rata pelanggan dalam antrian} \\
+    P_0 & : & \text{Probabilitas sistem kosong (tidak ada pelanggan)} \\
+    P_n & : & \text{Probabilitas terdapat } n \text{ pelanggan dalam sistem}
+    \end{array}
     """)
 
 
