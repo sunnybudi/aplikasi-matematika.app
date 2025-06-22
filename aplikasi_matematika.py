@@ -326,7 +326,6 @@ with tab3:
     - $W_q$ &: Waktu rata-rata pelanggan dalam antrian  
     - $P_0$ &: Probabilitas sistem kosong (tidak ada pelanggan)  
     - $P_n$ &: Probabilitas terdapat $n$ pelanggan dalam sistem  
-    <br>
     \end{align*}
     """, unsafe_allow_html=True)
 
