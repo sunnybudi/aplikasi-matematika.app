@@ -224,13 +224,15 @@ with tab2:
 
     
     st.markdown("""Keterangan""")
-    st.markdown(r"""
-    - $EOQ$ = Economic Order Quantity (jumlah pemesanan ekonomis)
-    - $D$   = Demand (jumlah kebutuhan (tuntutan barang per tahun)
-    - $S$   = Ordering Cost (biaya pemesanan per pesanan)
-    - $H$   = Holding Cost (biaya penyimpanan per unit per tahun)
-    - $N$   = Frekuensi pemesanan
-    - $T$   = Interval pemesanan
+    st.latex(r"""
+    \begin{array}{rcl}
+    EOQ &=& \text{Economic Order Quantity (jumlah pemesanan ekonomis)} \\
+    D   &=& \text{Demand (jumlah kebutuhan (tuntutan barang per tahun)} \\
+    S   &=& \text{Ordering Cost (biaya pemesanan per pesanan)} \\
+    H   &=& \text{Holding Cost (biaya penyimpanan per unit per tahun)} \\
+    N   &=& \text{Frekuensi pemesanan} \\
+    T   &=& \text{Interval pemesanan}
+    \end{array}
     """)
     
     D = st.number_input("📅 Permintaan Tahunan (D/unit)", value=0)
@@ -249,12 +251,12 @@ with tab2:
             T = 365 / N  # diasumsikan 1 tahun = 365 hari
     
             st.subheader("🧮 Perhitungan Berdasarkan Input")
-            st.latex(rf"""
-            \begin{{align*}}
-            \text{{EOQ}} &= \sqrt{{\frac{{2DS}}{{H}}}} = \sqrt{{\frac{{2 \cdot {D} \cdot {S}}}{{{H}}}}} = {EOQ:.2f} \\
-            N &= \frac{{D}}{{EOQ}} = \frac{{{D}}}{{{EOQ:.2f}}} = {N:.2f} \\
-            T &= \frac{{365}}{{N}} = \frac{{365}}{{{N:.2f}}} = {T:.2f} \text{{ hari}}
-            \end{{align*}}
+            st.latex(r"""
+            \begin{array}{rcl}
+            \text{{EOQ}} &=& \sqrt{{\frac{{2DS}}{{H}}}} = \sqrt{{\frac{{2 \cdot {D} \cdot {S}}}{{{H}}}}} = {EOQ:.2f} \\
+            N &=& \frac{{D}}{{EOQ}} = \frac{{{D}}}{{{EOQ:.2f}}} = {N:.2f} \\
+            T &=& \frac{{365}}{{N}} = \frac{{365}}{{{N:.2f}}} = {T:.2f} \text{{ hari}}
+            \end{{array}
             """)
         except:
             st.error("Pastikan semua input terisi dan nilai H ≠ 0")
@@ -317,7 +319,7 @@ with tab3:
     st.markdown("**📘 Keterangan Simbol Model M/M/1**")
     st.latex(r"""
     \begin{array}{rcl}
-    \lambda & : & \text{Tingkat kedatangan pelanggan per satuan waktu (misalnya pelanggan per jam)} \\
+    \lambda & : & \text{Tingkat kedatangan pelanggan per satuan waktu (misalnya per jam)} \\
     \mu & : & \text{Tingkat pelayanan pelanggan per satuan waktu} \\
     \rho & : & \text{Utilisasi server, yaitu } \rho = \frac{\lambda}{\mu} \\
     L & : & \text{Rata-rata jumlah pelanggan dalam sistem (antrian + dilayani)} \\
