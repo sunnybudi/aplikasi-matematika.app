@@ -234,9 +234,7 @@ with tab2:
     \\text{{T}}   & = & \\text{{Interval pemesanan}}
     \\end{{array}}
     """)
-
-
-    
+  
     D = st.number_input("📅 Permintaan Tahunan (D/unit)", value=0)
     S = st.number_input("🛒 Biaya Pemesanan per Order (S/Rp)", value=0)
     H = st.number_input("🏬 Biaya Penyimpanan per Unit per Tahun (H/Rp)", value=0)
@@ -254,10 +252,10 @@ with tab2:
     
             st.subheader("🧮 Perhitungan Berdasarkan Input")
             st.latex(rf"""
-            \begin{{align*}}
-            \text{{EOQ}} &= \sqrt{{\frac{{2DS}}{{H}}}} = \sqrt{{\frac{{2 \cdot {D} \cdot {S}}}{{{H}}}}} = \boxed{{\textstyle {EOQ:.2f}}} \\
-            N &= \frac{{D}}{{EOQ}} = \frac{{{D}}}{{{EOQ:.2f}}} = \boxed{{\textstyle {N:.2f}}} \\
-            T &= \frac{{365}}{{N}} = \frac{{365}}{{{N:.2f}}} = \boxed{{\textstyle {T:.2f}}}~\text{{hari}}
+            \\begin{{array}}{{lcl}}
+            \\text{{EOQ}} &=& \\sqrt{{\\frac{{2DS}}{{H}}}} = \\sqrt{{\\frac{{2 \\cdot {D} \\cdot {S}}}{{{H}}}}} = {EOQ:.2f} \\\\
+            \\text{{N}} &=& \\frac{{D}}{{EOQ}} = \\frac{{{D}}}{{{EOQ:.2f}}} = {N:.2f} \\\\
+            \text{{T}} &=& \\frac{{365}}{{N}} = \\frac{{365}}{{{N:.2f}}} = {T:.2f} \\text{{ hari}}
             \end{{align*}}
             """)
  
