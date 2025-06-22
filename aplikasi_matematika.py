@@ -224,7 +224,7 @@ with tab2:
 
     
     st.markdown("""Keterangan""")
-   st.latex(r"""
+   st.latex(f"""
     \begin{array}{lcl}
     \text{EOQ} & = & \text{Economic Order Quantity (jumlah pemesanan ekonomis)} \\
     \text{D}   & = & \text{Demand (jumlah kebutuhan / tuntutan barang per tahun)} \\
