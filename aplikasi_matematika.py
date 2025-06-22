@@ -316,16 +316,18 @@ with tab3:
 
     st.markdown("**📘 Keterangan Simbol Model M/M/1**")
     st.markdown(r"""
-    - $\lambda$: Tingkat kedatangan pelanggan per satuan waktu (misalnya pelanggan per jam)  
-    - $\mu$: Tingkat pelayanan pelanggan per satuan waktu  
-    - $\rho$: Utilisasi server, yaitu $\rho = \lambda / \mu$  
-    - $L$: Rata-rata jumlah pelanggan dalam sistem (antrian + dilayani)  
-    - $L_q$: Rata-rata jumlah pelanggan dalam antrian  
-    - $W$: Waktu rata-rata pelanggan berada dalam sistem  
-    - $W_q$: Waktu rata-rata pelanggan dalam antrian  
-    - $P_0$: Probabilitas sistem kosong (tidak ada pelanggan)  
-    - $P_n$: Probabilitas terdapat $n$ pelanggan dalam sistem  
+    \begin{align*}
+    - $\lambda$ &: Tingkat kedatangan pelanggan per satuan waktu (misalnya pelanggan per jam)  
+    - $\mu$ &: Tingkat pelayanan pelanggan per satuan waktu  
+    - $\rho$ &: Utilisasi server, yaitu $\rho = \lambda / \mu$  
+    - $L$ &: Rata-rata jumlah pelanggan dalam sistem (antrian + dilayani)  
+    - $L_q$ &: Rata-rata jumlah pelanggan dalam antrian  
+    - $W$ &: Waktu rata-rata pelanggan berada dalam sistem  
+    - $W_q$ &: Waktu rata-rata pelanggan dalam antrian  
+    - $P_0$ &: Probabilitas sistem kosong (tidak ada pelanggan)  
+    - $P_n$ &: Probabilitas terdapat $n$ pelanggan dalam sistem  
     <br>
+    \end{align*}
     """, unsafe_allow_html=True)
 
 
