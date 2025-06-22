@@ -224,16 +224,17 @@ with tab2:
 
     
     st.markdown("""Keterangan""")
-    st.latex(r"""
+   st.latex(r"""
     \begin{array}{lcl}
-    EOQ &=& \text{Economic Order Quantity (jumlah pemesanan ekonomis)} \\
-    D   &=& \text{Demand (jumlah kebutuhan (tuntutan barang per tahun)} \\
-    S   &=& \text{Ordering Cost (biaya pemesanan per pesanan)} \\
-    H   &=& \text{Holding Cost (biaya penyimpanan per unit per tahun)} \\
-    N   &=& \text{Frekuensi pemesanan} \\
-    T   &=& \text{Interval pemesanan}
+    \text{EOQ} & = & \text{Economic Order Quantity (jumlah pemesanan ekonomis)} \\
+    \text{D}   & = & \text{Demand (jumlah kebutuhan / tuntutan barang per tahun)} \\
+    \text{S}   & = & \text{Ordering Cost (biaya pemesanan per pesanan)} \\
+    \text{H}   & = & \text{Holding Cost (biaya penyimpanan per unit per tahun)} \\
+    \text{N}   & = & \text{Frekuensi pemesanan} \\
+    \text{T}   & = & \text{Interval pemesanan}
     \end{array}
     """)
+
     
     D = st.number_input("📅 Permintaan Tahunan (D/unit)", value=0)
     S = st.number_input("🛒 Biaya Pemesanan per Order (S/Rp)", value=0)
@@ -255,9 +256,10 @@ with tab2:
             \\begin{{array}}{{rcl}}
             \\text{{EOQ}} &=& \\sqrt{{\\frac{{2DS}}{{H}}}} = \\sqrt{{\\frac{{2 \\cdot {D} \\cdot {S}}}{{{H}}}}} = {EOQ:.2f} \\\\
             N &=& \\frac{{D}}{{EOQ}} = \\frac{{{D}}}{{{EOQ:.2f}}} = {N:.2f} \\\\
-            T &=& \\frac{{365}}{{N}} = \\frac{{365}}{{{N:.2f}}} = {T:.2f} \\text{{ hari}}
+            T &=& \\frac{{365}}{{N}} = \\frac{{365}}{{{N:.2f}}} = {T:.2f}~\\text{{hari}}
             \\end{{array}}
             """)
+
 
         except:
             st.error("Pastikan semua input terisi dan nilai H ≠ 0")
