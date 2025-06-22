@@ -315,7 +315,7 @@ with tab3:
     """)
 
     st.markdown("**📘 Keterangan Simbol Model M/M/1**")
-    st.markdown(r"""
+    st.latex(r"""
     \begin{align*}
     - $\lambda$ &: Tingkat kedatangan pelanggan per satuan waktu (misalnya pelanggan per jam) \\
     - $\mu$ &: Tingkat pelayanan pelanggan per satuan waktu \\
