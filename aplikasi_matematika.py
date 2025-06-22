@@ -327,7 +327,7 @@ with tab3:
     - $P_0$ &: Probabilitas sistem kosong (tidak ada pelanggan)  
     - $P_n$ &: Probabilitas terdapat $n$ pelanggan dalam sistem  
     \end{align*}
-    """, unsafe_allow_html=True)
+    """)
 
 
     # Input parameter
