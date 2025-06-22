@@ -253,12 +253,12 @@ with tab2:
             T = 365 / N  # diasumsikan 1 tahun = 365 hari
     
             st.subheader("🧮 Perhitungan Berdasarkan Input")
-            st.latex(f"""
-            \\begin{{array}}{{lcl}}
-            \\text{{EOQ}} &=& \\sqrt{{\\frac{{2DS}}{{H}}}} = \\sqrt{{\\frac{{2 \\cdot {D} \\cdot {S}}}{{{H}}}}} = \\displaystyle {EOQ:.2f} \\\\
-            \\text{{N}}   &=& \\frac{{D}}{{EOQ}} = \\frac{{{D}}}{{{EOQ:.2f}}} = \\displaystyle {N:.2f} \\\\
-            \\text{{T}}   &=& \\frac{{365}}{{N}} = \\frac{{365}}{{{N:.2f}}} = \\displaystyle {T:.2f}~\\text{{hari}}
-            \\end{{array}}
+            st.latex(rf"""
+            \begin{{align*}}
+            \text{{EOQ}} &= \sqrt{{\frac{{2DS}}{{H}}}} = \sqrt{{\frac{{2 \cdot {D} \cdot {S}}}{{{H}}}}} = {EOQ:.2f} \\
+            N &= \frac{{D}}{{EOQ}} = \frac{{{D}}}{{{EOQ:.2f}}} = {N:.2f} \\
+            T &= \frac{{365}}{{N}} = \frac{{365}}{{{N:.2f}}} = {T:.2f} \text{{ hari}}
+            \end{{align*}}
             """)
             
         except:
