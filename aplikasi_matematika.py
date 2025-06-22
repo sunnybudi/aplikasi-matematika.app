@@ -255,14 +255,11 @@ with tab2:
             st.subheader("🧮 Perhitungan Berdasarkan Input")
             st.latex(f"""
             \\begin{{array}}{{lcl}}
-            \\text{{EOQ}} &=& \\sqrt{{\\frac{{2DS}}{{H}}}} = \\sqrt{{\\frac{{2 \\cdot {D} \\cdot {S}}}{{{H}}}}} = \\mathbf{{{EOQ:.2f}}} \\\\
-            \\text{{N}}   &=& \\frac{{D}}{{EOQ}} = \\frac{{{D}}}{{{EOQ:.2f}}} = \\mathbf{{{N:.2f}}} \\\\
-            \\text{{T}}   &=& \\frac{{365}}{{N}} = \\frac{{365}}{{{N:.2f}}} = \\mathbf{{{T:.2f}}}~\\text{{hari}}
+            \\text{{EOQ}} &=& \\sqrt{{\\frac{{2DS}}{{H}}}} = \\sqrt{{\\frac{{2 \\cdot {D} \\cdot {S}}}{{{H}}}}} = \\displaystyle\\mathbf{{{EOQ:.2f}}} \\\\
+            \\text{{N}}   &=& \\frac{{D}}{{EOQ}} = \\frac{{{D}}}{{{EOQ:.2f}}} = \\displaystyle\\mathbf{{{N:.2f}}} \\\\
+            \\text{{T}}   &=& \\frac{{365}}{{N}} = \\frac{{365}}{{{N:.2f}}} = \\displaystyle\\mathbf{{{T:.2f}}}~\\text{{hari}}
             \\end{{array}}
             """)
-
-
-
         except:
             st.error("Pastikan semua input terisi dan nilai H ≠ 0")
 
