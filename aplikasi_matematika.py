@@ -317,15 +317,18 @@ with tab3:
     st.markdown("**📘 Keterangan Simbol Model M/M/1**")
     st.latex(r"""
     \begin{align*}
-    & \rho   & = \frac{\lambda}{\mu} \\
-    & L      & = \frac{\lambda}{\mu - \lambda} \\
-    & L_q    & = \frac{\lambda^2}{\mu (\mu - \lambda)} \\
-    & W      & = \frac{1}{\mu - \lambda} \\
-    & W_q    & = \frac{\lambda}{\mu (\mu - \lambda)} \\
-    & P_0    & = 1 - \frac{\lambda}{\mu} \\
-    & P_n    & = \left(1 - \frac{\lambda}{\mu}\right) \left(\frac{\lambda}{\mu}\right)^n
+    & \lambda & : \text{Tingkat kedatangan pelanggan per satuan waktu (misalnya pelanggan per jam)} \\
+    & \mu & : \text{Tingkat pelayanan pelanggan per satuan waktu} \\
+    & \rho & : \text{Utilisasi server, yaitu } \rho = \frac{\lambda}{\mu} \\
+    & L & : \text{Rata-rata jumlah pelanggan dalam sistem (antrian + dilayani)} \\
+    & L_q & : \text{Rata-rata jumlah pelanggan dalam antrian} \\
+    & W & : \text{Waktu rata-rata pelanggan berada dalam sistem} \\
+    & W_q & : \text{Waktu rata-rata pelanggan dalam antrian} \\
+    & P_0 & : \text{Probabilitas sistem kosong (tidak ada pelanggan)} \\
+    & P_n & : \text{Probabilitas terdapat } n \text{ pelanggan dalam sistem}
     \end{align*}
     """)
+
 
 
 
