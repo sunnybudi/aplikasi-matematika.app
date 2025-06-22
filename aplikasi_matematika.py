@@ -256,7 +256,7 @@ with tab2:
             \\text{{EOQ}} &=& \\sqrt{{\\frac{{2DS}}{{H}}}} = \\sqrt{{\\frac{{2 \\cdot {D} \\cdot {S}}}{{{H}}}}} = {EOQ:.2f} \\\\
             \\text{{N}} &=& \\frac{{D}}{{EOQ}} = \\frac{{{D}}}{{{EOQ:.2f}}} = {N:.2f} \\\\
             \text{{T}} &=& \\frac{{365}}{{N}} = \\frac{{365}}{{{N:.2f}}} = {T:.2f} \\text{{ hari}}
-            \end{{align*}}
+            \end{{array}}
             """)
  
         except:
