@@ -225,15 +225,16 @@ with tab2:
     
     st.markdown("""Keterangan""")
     st.latex(f"""
-    \begin{array}{lcl}
-    \text{EOQ} & = & \text{Economic Order Quantity (jumlah pemesanan ekonomis)} \\
-    \text{D}   & = & \text{Demand (jumlah kebutuhan / tuntutan barang per tahun)} \\
-    \text{S}   & = & \text{Ordering Cost (biaya pemesanan per pesanan)} \\
-    \text{H}   & = & \text{Holding Cost (biaya penyimpanan per unit per tahun)} \\
-    \text{N}   & = & \text{Frekuensi pemesanan} \\
-    \text{T}   & = & \text{Interval pemesanan}
-    \end{array}
+    \\begin{{array}}{{lcl}}
+    \\text{{EOQ}} & = & \\text{{Economic Order Quantity (jumlah pemesanan ekonomis)}} \\\\
+    \\text{{D}}   & = & \\text{{Demand (jumlah kebutuhan / tuntutan barang per tahun)}} \\\\
+    \\text{{S}}   & = & \\text{{Ordering Cost (biaya pemesanan per pesanan)}} \\\\
+    \\text{{H}}   & = & \\text{{Holding Cost (biaya penyimpanan per unit per tahun)}} \\\\
+    \\text{{N}}   & = & \\text{{Frekuensi pemesanan}} \\\\
+    \\text{{T}}   & = & \\text{{Interval pemesanan}}
+    \\end{{array}}
     """)
+
 
     
     D = st.number_input("📅 Permintaan Tahunan (D/unit)", value=0)
