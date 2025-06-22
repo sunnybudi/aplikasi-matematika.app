@@ -225,7 +225,7 @@ with tab2:
     
     st.markdown("""Keterangan""")
     st.latex(r"""
-    \begin{array}{rcl}
+    \begin{array}{lcl}
     EOQ &=& \text{Economic Order Quantity (jumlah pemesanan ekonomis)} \\
     D   &=& \text{Demand (jumlah kebutuhan (tuntutan barang per tahun)} \\
     S   &=& \text{Ordering Cost (biaya pemesanan per pesanan)} \\
@@ -251,13 +251,14 @@ with tab2:
             T = 365 / N  # diasumsikan 1 tahun = 365 hari
     
             st.subheader("🧮 Perhitungan Berdasarkan Input")
-            st.latex(r"""
-            \begin{array}{rcl}
-            \text{{EOQ}} &=& \sqrt{{\frac{{2DS}}{{H}}}} = \sqrt{{\frac{{2 \cdot {D} \cdot {S}}}{{{H}}}}} = {EOQ:.2f} \\
-            N &=& \frac{{D}}{{EOQ}} = \frac{{{D}}}{{{EOQ:.2f}}} = {N:.2f} \\
-            T &=& \frac{{365}}{{N}} = \frac{{365}}{{{N:.2f}}} = {T:.2f} \text{{ hari}}
-            \end{{array}
+            st.latex(f"""
+            \\begin{{array}}{{rcl}}
+            \\text{{EOQ}} &=& \\sqrt{{\\frac{{2DS}}{{H}}}} = \\sqrt{{\\frac{{2 \\cdot {D} \\cdot {S}}}{{{H}}}}} = {EOQ:.2f} \\\\
+            N &=& \\frac{{D}}{{EOQ}} = \\frac{{{D}}}{{{EOQ:.2f}}} = {N:.2f} \\\\
+            T &=& \\frac{{365}}{{N}} = \\frac{{365}}{{{N:.2f}}} = {T:.2f} \\text{{ hari}}
+            \\end{{array}}
             """)
+
         except:
             st.error("Pastikan semua input terisi dan nilai H ≠ 0")
 
